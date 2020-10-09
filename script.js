@@ -1,8 +1,8 @@
 /**
  * Weather App
  ̶*̶ ̶T̶O̶D̶O̶:̶ ̶C̶o̶m̶p̶l̶e̶t̶e̶ ̶g̶e̶t̶W̶e̶a̶t̶h̶e̶r̶D̶a̶t̶a̶(̶)̶ ̶t̶o̶ ̶r̶e̶t̶u̶r̶n̶ ̶j̶s̶o̶n̶ ̶r̶e̶s̶p̶o̶n̶s̶e̶ ̶P̶r̶o̶m̶i̶s̶e̶
- * TODO: Complete searchCity() to get user input and get data using getWeatherData()
- * TODO: Complete showWeatherData() to set the data in the the html file from response
+ ̶*̶ ̶T̶O̶D̶O̶:̶ ̶C̶o̶m̶p̶l̶e̶t̶e̶ ̶s̶e̶a̶r̶c̶h̶C̶i̶t̶y̶(̶)̶ ̶t̶o̶ ̶g̶e̶t̶ ̶u̶s̶e̶r̶ ̶i̶n̶p̶u̶t̶ ̶a̶n̶d̶ ̶g̶e̶t̶ ̶d̶a̶t̶a̶ ̶u̶s̶i̶n̶g̶ ̶g̶e̶t̶W̶e̶a̶t̶h̶e̶r̶D̶a̶t̶a̶(̶)̶
+ ̶*̶ ̶T̶O̶D̶O̶:̶ ̶C̶o̶m̶p̶l̶e̶t̶e̶ ̶s̶h̶o̶w̶W̶e̶a̶t̶h̶e̶r̶D̶a̶t̶a̶(̶)̶ ̶t̶o̶ ̶s̶e̶t̶ ̶t̶h̶e̶ ̶d̶a̶t̶a̶ ̶i̶n̶ ̶t̶h̶e̶ ̶t̶h̶e̶ ̶h̶t̶m̶l̶ ̶f̶i̶l̶e̶ ̶f̶r̶o̶m̶ ̶r̶e̶s̶p̶o̶n̶s̶e̶
  */
 
 // API_KEY for maps api
@@ -33,8 +33,9 @@ getWeatherData = (city) => {
 searchCity = () => {
   const city = document.getElementById("city-input").value;
   // CODE GOES HERE
-  let weatherData = getWeatherData(city)
+  getWeatherData(city)
     .then((res) => {
+      showWeatherData(res);
       console.log(res);
     })
     .catch((err) => {
@@ -48,4 +49,11 @@ searchCity = () => {
  */
 showWeatherData = (weatherData) => {
   //CODE GOES HERE
+
+  document.getElementById("city-name").innerText = weatherData.name;
+  document.getElementById("weather-type").innerText =
+    weatherData.weather[0].main;
+  document.getElementById("temp").innerText = weatherData.main.temp;
+  document.getElementById("min-temp").innerText = weatherData.main.temp_min;
+  document.getElementById("max-temp").innerText = weatherData.main.temp_max;
 };
