@@ -41,7 +41,7 @@
     <a href="https://github.com/ehfazrezwan/weather-app"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://weather-app-09cbpwj.web.app/">View Demo</a>
+    <a href="https://weather-app-siln.web.app/">View Demo</a>
     ·
     <a href="https://github.com/ehfazrezwan/weather-app/issues">Report Bug</a>
     ·
